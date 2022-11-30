@@ -1,6 +1,5 @@
 package com.gerasimov.data.api
 
-import android.content.Context
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,16 +16,9 @@ object RetrofitBuilder {
     /**
      * Creating a retrofit instance with certain parameters.
      *
-     * @param context -the context is required to obtain system
-     * information about the network connection.
-     * @param onConnectFailed - a function that is performed when there is no Internet access.
-     * @param onConnectSuccess - a function that is performed when there is Internet access.
      * @param url - the base url that retrofit will work with
      */
     fun getRetrofit(
-        context: Context,
-        onConnectFailed: () -> Unit,
-        onConnectSuccess: () -> Unit,
         url: String
     ): Retrofit {
         val oktHttpClient = OkHttpClient.Builder()

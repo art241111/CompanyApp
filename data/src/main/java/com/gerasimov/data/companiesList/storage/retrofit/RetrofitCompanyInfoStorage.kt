@@ -1,6 +1,5 @@
 package com.gerasimov.data.companiesList.storage.retrofit
 
-import android.content.Context
 import android.util.Log
 import com.gerasimov.data.api.RetrofitBuilder
 import com.gerasimov.data.companiesList.storage.CompaniesListStorage
@@ -10,9 +9,6 @@ import com.gerasimov.data.data.Resource
 import com.gerasimov.data.data.Status
 
 class RetrofitCompaniesListStorage(
-    private val context: Context,
-    private val onConnectFailed: () -> Unit,
-    private val onConnectSuccess: () -> Unit,
 ) : CompaniesListStorage {
 
     override suspend fun getList(): Resource<Companies> {
@@ -21,9 +17,6 @@ class RetrofitCompaniesListStorage(
                 status = Status.SUCCESS,
                 data = Companies(
                     getListFromLifeHack(
-                        context,
-                        onConnectFailed,
-                        onConnectSuccess
                     ).getCompanies()
                 ),
                 message = null
@@ -39,14 +32,9 @@ class RetrofitCompaniesListStorage(
     }
 
     private fun getListFromLifeHack(
-        context: Context,
-        onConnectFailed: () -> Unit,
-        onConnectSuccess: () -> Unit
+
     ): CompaniesFromLifehack =
         RetrofitBuilder.getRetrofit(
-            context,
-            onConnectFailed,
-            onConnectSuccess,
             "${RetrofitBuilder.LIFE_HACK_URL}/"
         ).create(CompaniesFromLifehack::class.java)
 }

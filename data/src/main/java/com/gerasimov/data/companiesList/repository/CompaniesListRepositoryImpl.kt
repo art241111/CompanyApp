@@ -29,7 +29,7 @@ class CompaniesListRepositoryImpl(
                     CompaniesListEntity(
                         id = it.id,
                         name = it.name,
-                        image = it.image
+                        image = "https://lifehack.studio/test_task/${it.image}"
                     )
                 })
             else null,
