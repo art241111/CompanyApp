@@ -15,7 +15,7 @@
 * Room
 
 Архитектурное решение: **MVVM**. Архитектура приложения:   
-<img src="./images/Architecture.png" style="width:200px;height:400px;">
+<img src="./images/Architecture.png" style="width:600px;height:400px;">
 
 ## Скрины из приложения
 
@@ -25,6 +25,6 @@
 <img src="./images/company_screen.png" style="width:200px;height:400px;">
 
 Главный экран без интернета:  
-<img src="./images/without_internet_main.png" style="width:200px;height:400px;">
+<img src="./images/without_internet_main.png" style="width:200px;height:400px;">  
 Экран с описанием компании без интернета:  
 <img src="./images/without_internet_save.png" style="width:200px;height:400px;">
