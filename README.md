@@ -17,7 +17,7 @@
 Архитектурное решение: **MVVM**. Архитектура приложения:   
 <img src="./images/Architecture.png" style="width:600px;height:400px;">
 
-## Скрины из приложения
+## Фотографии из приложения
 
 Главный экран:   
 <img src="./images/main_screen.png" style="width:200px;height:400px;">  
