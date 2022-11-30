@@ -35,7 +35,7 @@ fun CompanyListScreen(
             contentPadding = PaddingValues(top = 12.dp)
         ) {
             item(span = { GridItemSpan(maxLineSpan) }) {
-                Header("Интересные компании")
+                Header("Интересные компании", Modifier.padding(start = 16.dp))
             }
             if (companies != null) {
                 itemsIndexed(companies!!.list) { id, company ->

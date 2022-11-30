@@ -8,6 +8,6 @@ interface CompaniesListDao {
     @Query("SELECT * FROM CompanyInListRoom")
     fun getAll(): List<CompanyInListRoom>?
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg companies: CompanyInListRoom)
 }
