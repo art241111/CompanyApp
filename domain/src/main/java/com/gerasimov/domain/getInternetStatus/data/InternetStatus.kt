@@ -1,4 +1,5 @@
 package com.gerasimov.domain.getInternetStatus.data
 
-class InternetStatus {
+enum class InternetStatus {
+    CONNECT, DISCONNECT
 }
