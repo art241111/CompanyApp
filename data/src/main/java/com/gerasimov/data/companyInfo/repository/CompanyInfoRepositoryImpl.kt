@@ -32,7 +32,11 @@ class CompanyInfoRepositoryImpl(
                     id = company.data!!.id,
                     name = company.data!!.name,
                     description = company.data!!.description,
-                    imageUrl = "https://lifehack.studio/test_task/${company.data!!.img}"
+                    imageUrl = "https://lifehack.studio/test_task/${company.data!!.img}",
+                    lat = company.data!!.lat,
+                    lon = company.data!!.lon,
+                    phone = company.data!!.phone,
+                    webSite = company.data!!.webSite,
                 )
             else null,
             message = company.message
