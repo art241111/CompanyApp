@@ -72,7 +72,10 @@ fun CompanyInfoScreen(
             } else {
                 item {
                     if (errorMessage != null) {
-                        Text(text = errorMessage!!)
+                        Spacer(modifier = Modifier.height(200.dp))
+                        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                            Text(text = errorMessage!!)
+                        }
                     }
                 }
             }
