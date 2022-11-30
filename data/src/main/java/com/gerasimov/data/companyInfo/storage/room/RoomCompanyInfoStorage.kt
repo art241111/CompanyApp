@@ -2,6 +2,7 @@ package com.gerasimov.data.companyInfo.storage.room
 
 import android.content.Context
 import androidx.room.Room
+import com.gerasimov.data.companyInfo.storage.CompaniesInfoStorageSavable
 import com.gerasimov.data.companyInfo.storage.CompanyInfoStorage
 import com.gerasimov.data.companyInfo.storage.data.Company
 import com.gerasimov.data.companyInfo.storage.room.data.CompanyRoom
@@ -9,7 +10,9 @@ import com.gerasimov.data.companyInfo.storage.room.database.CompanyInfoDataBase
 import com.gerasimov.data.data.Resource
 import com.gerasimov.data.data.Status
 
-class RoomCompanyInfoStorage(applicationContext: Context) : CompanyInfoStorage {
+class RoomCompanyInfoStorage(
+    applicationContext: Context
+) : CompanyInfoStorage, CompaniesInfoStorageSavable {
     private val db = Room.databaseBuilder(
         applicationContext,
         CompanyInfoDataBase::class.java, "company-info-database"

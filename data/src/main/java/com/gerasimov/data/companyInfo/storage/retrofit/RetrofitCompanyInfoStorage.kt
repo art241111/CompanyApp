@@ -28,15 +28,9 @@ class RetrofitCompanyInfoStorage(
         }
     }
 
-    override suspend fun saveCompany(company: Company) {
-        TODO("Not yet implemented")
-    }
-
     private fun getListFromLifeHack(
     ): CompanyFromLifehack =
         RetrofitBuilder.getRetrofit(
             "${RetrofitBuilder.LIFE_HACK_URL}/"
         ).create(CompanyFromLifehack::class.java)
-
-
 }

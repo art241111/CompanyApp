@@ -36,6 +36,7 @@ class CompanyInfoViewModel(application: Application) : AndroidViewModel(applicat
         CompanyInfoRepositoryImpl(
             { internetRepository.getInternetStatus() },
             retrofitCompanyInfoStorage,
+            roomCompanyInfoStorage,
             roomCompanyInfoStorage
         )
 

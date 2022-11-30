@@ -12,6 +12,7 @@ import com.gerasimov.domain.companiesList.data.CompaniesList
 import com.gerasimov.domain.companiesList.model.CompaniesListRepository
 import com.gerasimov.domain.getInternetStatus.data.InternetStatus
 import com.gerasimov.domain.getInternetStatus.model.InternetStatusRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -29,12 +30,14 @@ class CompanyListViewModel(application: Application) : AndroidViewModel(applicat
 
     private val retrofitCompaniesListStorage =
         RetrofitCompaniesListStorage()
-    private val roomCompaniesListStorage = RoomCompaniesListStorage()
+    private val roomCompaniesListStorage =
+        RoomCompaniesListStorage(getApplication<Application>().applicationContext)
 
     private val repository: CompaniesListRepository =
         CompaniesListRepositoryImpl(
             { internetRepository.getInternetStatus() },
             retrofitCompaniesListStorage,
+            roomCompaniesListStorage,
             roomCompaniesListStorage
         )
 
@@ -52,7 +55,7 @@ class CompanyListViewModel(application: Application) : AndroidViewModel(applicat
     val errorMessage: StateFlow<String?> = _errorMessage
 
     fun getCompanyList() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             _internetStatus.value = internetRepository.getInternetStatus()
 
 
