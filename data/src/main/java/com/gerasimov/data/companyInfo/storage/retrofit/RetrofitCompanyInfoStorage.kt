@@ -12,11 +12,22 @@ class RetrofitCompanyInfoStorage(
 ) : CompanyInfoStorage {
     override suspend fun getById(id: Int): Resource<Company> {
         return try {
-            Resource(
-                status = Status.SUCCESS,
-                data = getListFromLifeHack().getCompany(id + 1)[0],
-                message = null
-            )
+            with(getListFromLifeHack().getCompany(id + 1)[0]) {
+                Resource(
+                    status = Status.SUCCESS,
+                    data = Company(
+                        id = id,
+                        name = name,
+                        img = img,
+                        description = description,
+                        lat = lat,
+                        lon = lon,
+                        webSite = webSite,
+                        phone = phone
+                    ),
+                    message = null
+                )
+            }
 
         } catch (e: Exception) {
             Log.e("CompanyInfoErr", e.message ?: "null")

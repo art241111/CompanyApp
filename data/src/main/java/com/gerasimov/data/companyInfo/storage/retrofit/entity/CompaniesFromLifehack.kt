@@ -1,6 +1,6 @@
 package com.gerasimov.data.companyInfo.storage.retrofit.entity
 
-import com.gerasimov.data.companyInfo.storage.data.Company
+import com.gerasimov.data.companyInfo.storage.retrofit.data.CompanyRetrofit
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -14,5 +14,5 @@ interface CompanyFromLifehack {
     suspend fun getCompany(
         @Query("id")
         id: Int,
-    ): List<Company>
+    ): List<CompanyRetrofit>
 }

@@ -4,6 +4,7 @@ import android.util.Log
 import com.gerasimov.data.api.RetrofitBuilder
 import com.gerasimov.data.companiesList.storage.CompaniesListStorage
 import com.gerasimov.data.companiesList.storage.data.Companies
+import com.gerasimov.data.companiesList.storage.data.CompanyInList
 import com.gerasimov.data.companiesList.storage.retrofit.entity.CompaniesFromLifehack
 import com.gerasimov.data.data.Resource
 import com.gerasimov.data.data.Status
@@ -17,7 +18,13 @@ class RetrofitCompaniesListStorage(
                 status = Status.SUCCESS,
                 data = Companies(
                     getListFromLifeHack(
-                    ).getCompanies()
+                    ).getCompanies().map {
+                        CompanyInList(
+                            id = it.id,
+                            image = it.image,
+                            name = it.name
+                        )
+                    }
                 ),
                 message = null
             )
