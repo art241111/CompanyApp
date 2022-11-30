@@ -1,6 +1,7 @@
 package com.gerasimov.companyapp.views
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.CircularProgressIndicator
@@ -45,11 +46,13 @@ fun ImageView(
             }
         },
         failure = {
-            Icon(
-                Icons.Default.Warning,
-                "The picture didn't load"
-            )
-            Text(text = "image request failed.")
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Icon(
+                    Icons.Default.Warning,
+                    "The picture didn't load"
+                )
+                Text(text = "image request failed.")
+            }
         }
     )
 }
