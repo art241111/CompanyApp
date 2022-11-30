@@ -14,7 +14,11 @@ class CompanyInfoRepositoryImpl(
     CompanyInfoRepository {
     override suspend fun getCompanyInfoById(id: Int): Resource<CompanyInfo> {
         val company = if (getInternetStatus() == InternetStatus.CONNECT) {
-            remoteCompanyInfoStorage.getById(id)
+            val c = remoteCompanyInfoStorage.getById(id)
+            if (c.data != null) {
+                localCompanyInfoStorage.saveCompany(c.data!!)
+            }
+            c
         } else {
             localCompanyInfoStorage.getById(id)
         }

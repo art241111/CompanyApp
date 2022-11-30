@@ -12,6 +12,7 @@ import com.gerasimov.domain.companyById.data.CompanyInfo
 import com.gerasimov.domain.companyById.model.CompanyInfoRepository
 import com.gerasimov.domain.getInternetStatus.data.InternetStatus
 import com.gerasimov.domain.getInternetStatus.model.InternetStatusRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -21,7 +22,8 @@ class CompanyInfoViewModel(application: Application) : AndroidViewModel(applicat
     val companyInfo: StateFlow<CompanyInfo?> = _companyInfo
 
     private val retrofitCompanyInfoStorage = RetrofitCompanyInfoStorage()
-    private val roomCompanyInfoStorage = RoomCompanyInfoStorage()
+    private val roomCompanyInfoStorage =
+        RoomCompanyInfoStorage(getApplication<Application>().applicationContext)
 
     private val internetRepository: InternetStatusRepository =
         InternetStatusRepositoryImpl(getApplication<Application>().applicationContext)
@@ -45,7 +47,7 @@ class CompanyInfoViewModel(application: Application) : AndroidViewModel(applicat
 
 
     fun getCompanyInfoById(id: Int) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             _internetStatus.value = internetRepository.getInternetStatus()
 
             with(getCompanyInfo.execute(id)) {

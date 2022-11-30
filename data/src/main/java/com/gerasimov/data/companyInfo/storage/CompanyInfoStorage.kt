@@ -5,4 +5,5 @@ import com.gerasimov.data.data.Resource
 
 interface CompanyInfoStorage {
     suspend fun getById(id: Int): Resource<Company>
+    suspend fun saveCompany(company: Company)
 }
