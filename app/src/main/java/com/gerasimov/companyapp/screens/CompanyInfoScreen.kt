@@ -3,11 +3,8 @@ package com.gerasimov.companyapp.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Phone
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -16,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.gerasimov.companyapp.viewModel.CompanyInfoViewModel
+import com.gerasimov.companyapp.views.BackArrowButton
 import com.gerasimov.companyapp.views.ImageView
 import com.gerasimov.companyapp.views.InternetError
 import com.gerasimov.companyapp.views.text.Header
@@ -79,9 +77,10 @@ fun CompanyInfoScreen(
                 }
             }
         }
-        IconButton(onClick = onReturnToList) {
-            Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+        BackArrowButton {
+            onReturnToList()
         }
+
         if (internetStatus == InternetStatus.DISCONNECT) {
             InternetError(Modifier.align(Alignment.TopCenter))
         }
