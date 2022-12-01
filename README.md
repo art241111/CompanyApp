@@ -23,7 +23,7 @@
 <img src="./images/main_screen.png" style="width:200px;height:400px;">  
 Экран с описанием компании:  
 <img src="./images/company_screen.png" style="width:200px;height:400px;">  
-<img src="./images/company_screen.png" style="width:200px;height:400px;">  
+<img src="./images/company_screen_2.png" style="width:200px;height:400px;">  
 
 Главный экран без интернета:  
 <img src="./images/without_internet_main.png" style="width:200px;height:400px;">  
