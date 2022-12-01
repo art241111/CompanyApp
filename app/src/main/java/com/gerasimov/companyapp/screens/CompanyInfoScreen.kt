@@ -37,13 +37,13 @@ fun CompanyInfoScreen(
                         modifier = Modifier.size(444.dp, 311.dp)
                     )
                 }
-                item {
-                    Header(text = companyInfo!!.name)
-                }
+
 
                 item {
+                    Header(text = companyInfo!!.name)
+
                     with(companyInfo!!) {
-                        if (phone != "" || webSite != "") {
+                        if (phone.trim() != "" || webSite.trim() != "") {
                             Spacer(modifier = Modifier.height(16.dp))
 
                             if (phone != "") {
@@ -58,12 +58,6 @@ fun CompanyInfoScreen(
                             Spacer(modifier = Modifier.height(16.dp))
                         }
                     }
-                }
-
-                item {
-                    Text(
-                        text = companyInfo!!.name
-                    )
                     Text(
                         text = companyInfo!!.description
                     )

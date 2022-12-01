@@ -19,7 +19,7 @@ class RetrofitCompanyInfoStorage(
                         id = id,
                         name = name,
                         img = img,
-                        description = description,
+                        description = description.substringAfter("\n"), // Delete company name
                         lat = lat,
                         lon = lon,
                         webSite = webSite,
