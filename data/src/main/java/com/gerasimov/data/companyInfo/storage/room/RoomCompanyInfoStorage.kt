@@ -19,7 +19,7 @@ class RoomCompanyInfoStorage(
     ).build().userDao()
 
     override suspend fun getById(id: Int): Resource<Company> {
-        val company = db.findById(id + 1)
+        val company = db.findById(id)
         return if (company != null) {
             Resource(
                 status = Status.SUCCESS,
