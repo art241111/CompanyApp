@@ -15,7 +15,7 @@
 * Room
 
 Архитектурное решение: **MVVM**. Архитектура приложения:   
-<img src="./images/Architecture.png" style="width:700px;height:400px;">
+<img src="./images/Architecture.png" style="width:620px;height:500px;">
 
 ## Фотографии из приложения
 
